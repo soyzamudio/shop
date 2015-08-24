@@ -1,14 +1,14 @@
 angular.module('app.services')
-.factory 'Post', [ '$http', ($http) ->
+.factory 'Post', [ '$http', 'myConfig', ($http, myConfig) ->
   getFriendsPosts: ->
-    $http.get 'http://localhost:5000/post/friends'
+    $http.get "#{myConfig.apiUrl}/post/friends"
 
   getWorldPosts: ->
-    $http.get 'http://localhost:5000/post/world'
+    $http.get "#{myConfig.apiUrl}/post/world"
 
   getCuratedPosts: ->
-    $http.get 'http://localhost:5000/post/curated'
+    $http.get "#{myConfig.apiUrl}/post/curated"
 
   createPost: (payload) ->
-    $http.post 'http://localhost:5000/post', payload
+    $http.post "#{myConfig.apiUrl}/post/", payload
 ]
