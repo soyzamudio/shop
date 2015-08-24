@@ -8,6 +8,7 @@ angular.module 'app', [
   # Angular modules
   'ionic'
   'ui.router'
+  'ngCordova'
 
   # Our container modules
   'app.services'

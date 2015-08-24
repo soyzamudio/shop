@@ -1,5 +1,8 @@
 angular.module('app.controllers')
 .controller 'AppController', [ '$scope', '$state', ($scope, $state) ->
+  $scope.showBar = true
+  if $state.current.name is 'login'
+    $scope.showBar = false
   $scope.menu = [
     'friends'
     'world'

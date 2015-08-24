@@ -6,13 +6,16 @@ angular.module('app')
   ($stateProvider, $urlRouterProvider, $ionicConfigProvider) ->
     $ionicConfigProvider.views.transition('none');
     $urlRouterProvider.otherwise 'friends'
-
     $stateProvider
     .state 'root',
       url: ''
       controller: 'RootCtrl'
       data:
         authenticate: false
+    .state 'login',
+      url: '/login'
+      templateUrl: 'app/modules/pages/login/login.html'
+      controller: 'LoginCtrl'
     .state 'friends',
       url: '/friends'
       templateUrl: 'app/modules/pages/friends/friends.html'
@@ -36,6 +39,7 @@ angular.module('app')
 ]
 
 angular.module('app')
-.controller 'RootCtrl', [ '$state', ($state) ->
+.controller 'RootCtrl', [ '$rootScope', '$state', ($rootScope, $state) ->
+  # if not $rootScope.user then $state.go 'login' else $state.go 'friends'
   $state.go 'friends'
 ]
