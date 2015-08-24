@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-ui-router": "~0.2.15",
-    "ngCordova": "~0.1.20-alpha"
+    "ngCordova": "~0.1.20-alpha",
+    "ionic-filter-bar": "~1.0.5"
   }
 }
