@@ -1,9 +1,0 @@
-ion-content {
-  background: $white;
-}
-.has-subheader {
-  top: 79px;
-}
-.platform-ios.platform-cordova:not(.fullscreen) .has-subheader {
-  top: 99px;
-}
