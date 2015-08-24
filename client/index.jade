@@ -19,7 +19,7 @@ html(lang="en")
       ion-nav-buttons(side='left')
         i.button.icon.ion-ios-gear-outline
       ion-nav-buttons(side='right')
-        i.button.icon.ion-aperture
+        i.button.icon.ion-aperture(ng-click='showCamera()')
         i.button.icon.ion-ios-search(ng-click='showFilterBar()')
     .bar.bar-subheader(ng-if='showBar')
       ul

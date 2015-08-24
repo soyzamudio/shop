@@ -3,7 +3,9 @@ angular.module('app.controllers')
   '$scope'
   '$state'
   '$ionicFilterBar'
-  ($scope, $state, $ionicFilterBar) ->
+  '$ionicPlatform'
+  '$cordovaCamera'
+  ($scope, $state, $ionicFilterBar, $ionicPlatform, $cordovaCamera) ->
     $scope.showBar = true
     $scope.filterBarInstance = null
     if $state.current.name is 'login'
@@ -32,4 +34,23 @@ angular.module('app.controllers')
         items: $scope.items
         update: (filteredItems, filterText) ->
           $scope.items = filteredItems
+
+    $scope.showCamera = () ->
+      $ionicPlatform.ready ->
+        options =
+          destinationType: Camera.DestinationType.DATA_URL
+          sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+          allowEdit: true
+          encodingType: Camera.EncodingType.JPEG
+          targetWidth: 500
+          targetHeight: 500
+          popoverOptions: CameraPopoverOptions
+          saveToPhotoAlbum: false
+
+        $cordovaCamera.getPicture(options)
+        .then (imageData) ->
+          image = "data:image/jpeg;base64,#{imageData}"
+          console.log image
+        , (err) ->
+          console.log err
 ]
