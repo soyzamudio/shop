@@ -1,2 +1,4 @@
 ion-view(view-title='FASHARÉ')
-  ion-content.scroll
+  ion-content.scroll.has-subheader
+    ion-refresher(pulling-text='Pull to refresh...', on-refresh='doRefresh()')
+    item-cell(ng-repeat='item in items', item='item')
