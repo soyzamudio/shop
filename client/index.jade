@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+    title Ionic Swipe Down
+    //- link(rel="stylesheet", href="//code.ionicframework.com/1.0.0-beta.14/css/ionic.css")
+    script(src='lib/ionic/js/ionic.bundle.js')
+    link(rel='stylesheet', href='scss/ionic.app.css')
+    script(src='js/app.js')
+    script(src='cordova.js')
+    script(src='lib/angular-ui-router/release/angular-ui-router.min.js')
+
+  body(ng-cloak ng-app='app', ng-controller='AppController')
+    ion-nav-bar.bar-default
+      ion-nav-buttons(side='right')
+        i.button.icon.ion-ios-search
+    .bar.bar-subheader
+      ul
+        li: a(ng-repeat='item in menu track by $index',
+          ng-class='{ active: $index == selected }',
+          ng-click='select($index, item)') {{::item}}
+    ion-nav-view

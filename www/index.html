@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic Swipe Down</title>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <link rel="stylesheet" href="scss/ionic.app.css">
+    <script src="js/app.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  </head>
+  <body ng-cloak="" ng-app="app" ng-controller="AppController">
+    <ion-nav-bar class="bar-default">
+      <ion-nav-buttons side="right"><i class="button icon ion-ios-search"></i></ion-nav-buttons>
+    </ion-nav-bar>
+    <div class="bar bar-subheader">
+      <ul>
+        <li><a ng-repeat="item in menu track by $index" ng-class="{ active: $index == selected }" ng-click="select($index, item)">{{::item}}</a></li>
+      </ul>
+    </div>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
