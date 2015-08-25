@@ -10,6 +10,7 @@ angular.module 'app', [
   'ui.router'
   'ngCordova'
   'jett.ionic.filter.bar'
+  'environment'
 
   # Our container modules
   'app.services'
