@@ -6,5 +6,4 @@ angular.module('app.directives')
     message: '@'
     user: '='
   link: (scope, element, attr) ->
-    console.log scope
 ]
