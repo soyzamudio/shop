@@ -1,21 +1,7 @@
 .item-cell
   .item-cell-image
-    img(src='{{item.image}}')
-  .row.item-cell-info
-    .col.col-20
-      .item-cell-data
-        span.item-cell-number 230
-        span.item-cell-icon
-          i.icon.ion-ios-heart
-    .col.col-20
-      .item-cell-data
-        span.item-cell-number 543
-        span.item-cell-icon
-          i.icon.ion-chatbubble-working
-    .col.col-20
-      .item-cell-data
-        span.item-cell-number 4
-        span.item-cell-icon
-          i.icon.ion-tshirt
-    .col.col-40(style='text-align:center;')
-      img.item-cell-info-image(src='{{item.user.image}}')
+    img(ng-src='{{item.image}}')
+  .item-cell-info
+    item-info(amount='1230', icon='ion-ios-heart')
+    item-info(amount='24400', icon='ion-chatbubble-working')
+    item-info(amount='4630', icon='ion-tshirt')
