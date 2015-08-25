@@ -1,14 +1,16 @@
 angular.module('app.services')
-.factory 'Post', [ '$http', 'myConfig', ($http, myConfig) ->
+.factory 'Post', [ '$http', 'myConfig', 'envService', ($http, myConfig, envService) ->
+  url = envService.read('apiUrl')
+
   getFriendsPosts: ->
-    $http.get "#{myConfig.apiUrl}/post/friends"
+    $http.get "#{url}/post/friends"
 
   getWorldPosts: ->
-    $http.get "#{myConfig.apiUrl}/post/world"
+    $http.get "#{url}/post/world"
 
   getCuratedPosts: ->
-    $http.get "#{myConfig.apiUrl}/post/curated"
+    $http.get "#{url}/post/curated"
 
   createPost: (payload) ->
-    $http.post "#{myConfig.apiUrl}/post/", payload
+    $http.post "#{url}/post/", payload
 ]

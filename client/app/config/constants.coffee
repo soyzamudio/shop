@@ -1,3 +1,4 @@
 angular.module('app')
 .constant 'myConfig',
-  apiUrl: 'http://shops-api.herokuapp.com'
+  devApiUrl: 'http://localhost:5000'
+  prodApiUrl: 'http://shops-api.herokuapp.com'

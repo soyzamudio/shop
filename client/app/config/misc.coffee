@@ -3,7 +3,9 @@ angular.module('app')
   '$stateProvider'
   '$urlRouterProvider'
   '$ionicConfigProvider'
-  ($stateProvider, $urlRouterProvider, $ionicConfigProvider) ->
+  'envServiceProvider'
+  'myConfig'
+  ($stateProvider, $urlRouterProvider, $ionicConfigProvider, envServiceProvider, myConfig) ->
     $ionicConfigProvider.views.transition('none');
     $urlRouterProvider.otherwise 'friends'
     $stateProvider
@@ -36,6 +38,18 @@ angular.module('app')
       url: '/mine'
       templateUrl: 'app/modules/pages/mine/mine.html'
       controller: 'MineCtrl'
+
+    envServiceProvider.config
+      domains:
+        development: [myConfig.devApiUrl]
+        production: [myConfig.prodApiUrl]
+      vars:
+        development:
+          apiUrl: myConfig.devApiUrl
+        production:
+          apiUrl: myConfig.prodApiUrl
+
+    envServiceProvider.check()
 ]
 
 angular.module('app')
