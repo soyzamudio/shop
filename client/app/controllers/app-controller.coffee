@@ -3,7 +3,8 @@ angular.module('app.controllers')
   '$scope'
   '$state'
   '$ionicFilterBar'
-  ($scope, $state, $ionicFilterBar) ->
+  'Helper'
+  ($scope, $state, $ionicFilterBar, Helper) ->
     $scope.showBar = true
     $scope.filterBarInstance = null
     if $state.current.name is 'login'
@@ -27,9 +28,13 @@ angular.module('app.controllers')
 
     getItems()
 
-    $scope.showFilterBar = () ->
+    $scope.showFilterBar = ->
       filterBarInstance = $ionicFilterBar.show
         items: $scope.items
         update: (filteredItems, filterText) ->
           $scope.items = filteredItems
+
+    $scope.createSomething = ->
+      Helper.createPost
+        image: 'http://media4.popsugar-assets.com/files/2015/08/11/825/n/24155341/0e4275c5_KIINI_SS.xlarge.jpg'
 ]

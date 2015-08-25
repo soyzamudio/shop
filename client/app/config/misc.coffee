@@ -39,6 +39,8 @@ angular.module('app')
       templateUrl: 'app/modules/pages/mine/mine.html'
       controller: 'MineCtrl'
 
+    # envServiceProvider.set('production')
+
     envServiceProvider.config
       domains:
         development: [myConfig.devApiUrl]

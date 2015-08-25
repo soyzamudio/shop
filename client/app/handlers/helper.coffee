@@ -26,4 +26,8 @@ angular.module('app.services')
           name: 'ShopStyle'
           image: 'http://resources.shopstyle.com/8b55D4F8E8/im/default-profile-icon.png'
       items
+
+  createPost: (payload) ->
+    console.log payload
+    # Post.createPost(payload)
 ]
