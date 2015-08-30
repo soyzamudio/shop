@@ -18,6 +18,10 @@ angular.module('app')
       url: '/login'
       templateUrl: 'app/modules/pages/login/login.html'
       controller: 'LoginCtrl'
+    .state 'register',
+      url: '/login'
+      templateUrl: 'app/modules/pages/login/login.html'
+      controller: 'LoginCtrl'
     .state 'friends',
       url: '/friends'
       templateUrl: 'app/modules/pages/friends/friends.html'
@@ -56,6 +60,5 @@ angular.module('app')
 
 angular.module('app')
 .controller 'RootCtrl', [ '$rootScope', '$state', ($rootScope, $state) ->
-  # if not $rootScope.user then $state.go 'login' else $state.go 'friends'
   $state.go 'friends'
 ]
