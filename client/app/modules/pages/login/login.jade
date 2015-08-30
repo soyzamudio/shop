@@ -1,3 +1,18 @@
-ion-view(view-title='FASHARÉ', hide-nav-bar='true')
-  ion-content.scroll.has-subheader
-    h1 Login
+ion-view(hide-nav-bar='true')
+  ion-content.login-content-view(scroll='false')
+    .login-title-content
+      h4.login-subtitle Welcome to
+      h1.login-title SHOPSHARE
+    .login-form-content
+      input.login-form-control.login-username(type='text', placeholder='Username', ng-model='user.username')
+      input.login-form-control.login-email(type='email', ng-if='state === "register"', placeholder='Email', ng-model='user.email')
+      input.login-form-control.login-password(type='password', placeholder='Password', ng-model='user.password')
+      a.login-button.login-btn(ng-if='state === "login"', ng-click='userAuthentication(user)') log in
+      a.login-button.login-btn(ng-if='state === "register"', ng-click='userAuthentication(user)') register
+      .login-separator
+        h5.login-line
+          span.login-or OR
+      //- a.login-button.facebook-btn sign in with facebook
+      //- a.login-button.twitter-btn sign in with twitter
+      a.login-button.default-btn(ng-if='state === "login"', ng-click='registerOrLogin()') register
+      a.login-button.default-btn(ng-if='state === "register"', ng-click='registerOrLogin()') log in

@@ -1,14 +1,14 @@
 angular.module('app.controllers')
 .controller 'AppController', [
+  '$rootScope'
   '$scope'
   '$state'
+  '$window'
   '$ionicFilterBar'
   'Helper'
-  ($scope, $state, $ionicFilterBar, Helper) ->
-    $scope.showBar = true
+  ($rootScope, $scope, $state, $window, $ionicFilterBar, Helper) ->
+    $rootScope.showBar = true
     $scope.filterBarInstance = null
-    if $state.current.name is 'login'
-      $scope.showBar = false
     $scope.menu = [
       'friends'
       'world'
@@ -34,7 +34,10 @@ angular.module('app.controllers')
         update: (filteredItems, filterText) ->
           $scope.items = filteredItems
 
-    $scope.createSomething = ->
-      Helper.createPost
-        image: 'http://media4.popsugar-assets.com/files/2015/08/11/825/n/24155341/0e4275c5_KIINI_SS.xlarge.jpg'
+    $scope.logout = ->
+      $rootScope.user = ''
+      $window.localStorage.clear()
+      $state.go 'login'
+      # Helper.createPost
+      #   image: 'http://media4.popsugar-assets.com/files/2015/08/11/825/n/24155341/0e4275c5_KIINI_SS.xlarge.jpg'
 ]
