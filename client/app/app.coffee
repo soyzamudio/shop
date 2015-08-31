@@ -11,6 +11,7 @@ angular.module 'app', [
   'ngCordova'
   'jett.ionic.filter.bar'
   'environment'
+  'satellizer'
 
   # Our container modules
   'app.services'

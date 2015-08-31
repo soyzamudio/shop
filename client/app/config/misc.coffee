@@ -2,11 +2,15 @@ angular.module('app')
 .config [
   '$stateProvider'
   '$urlRouterProvider'
+  '$authProvider'
   '$ionicConfigProvider'
   'envServiceProvider'
   'myConfig'
-  ($stateProvider, $urlRouterProvider, $ionicConfigProvider, envServiceProvider, myConfig) ->
-    $ionicConfigProvider.views.transition('none');
+  ($stateProvider, $urlRouterProvider, $authProvider, $ionicConfigProvider, envServiceProvider, myConfig) ->
+    $authProvider.loginUrl = "#{myConfig.devApiUrl}/auth/login"
+    $authProvider.signupUrl = "#{myConfig.devApiUrl}/auth/signup"
+
+    $ionicConfigProvider.views.transition 'none'
     $urlRouterProvider.otherwise 'friends'
     $stateProvider
     .state 'root',

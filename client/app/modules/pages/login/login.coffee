@@ -12,11 +12,11 @@ angular.module('app')
     $scope.userAuthentication = (user) ->
       switch $scope.state
         when 'login'
-          User.getUser user
+          User.login user
             .then (response) ->
               login response
         when 'register'
-          User.createUser user
+          User.signup user
             .then (response) ->
               login response
 
@@ -27,7 +27,7 @@ angular.module('app')
 
     login = (response) ->
       $rootScope.showBar = true
-      $window.localStorage.user = JSON.stringify response.data.user
       $rootScope.user = response.data.user
+      $window.localStorage.token = JSON.stringify response.data.token
       $state.go('friends');
 ]

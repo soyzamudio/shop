@@ -1,12 +1,14 @@
 angular.module('app.services')
-.factory 'User', [ '$http', 'myConfig', 'envService', ($http, myConfig, envService) ->
-  url = envService.read('apiUrl')
+.factory 'User', [
+  '$http'
+  '$auth'
+  'myConfig'
+  'envService'
+  ($http, $auth, myConfig, envService) ->
+    url = envService.read('apiUrl')
+    login: (user) ->
+      $auth.login user
 
-  getUser: (payload) ->
-    $http.get "#{url}/user",
-      params:
-        payload
-
-  createUser: (payload) ->
-    $http.post "#{url}/user", payload
+    signup: (user) ->
+      $auth.signup user
 ]
